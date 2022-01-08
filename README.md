@@ -10,10 +10,24 @@
 * turtlesim_node 노드와 transformer 노드를 동시에 실행시킬 수 있는 launch 파일(assignment1_launch.launch.py)을 작성한다
 * turtlesim 실행 후, 하기 코드를 통해 거북이는 사용자가 지정한 radius, velocity, direction 값을 포함하는 등속원운동을 한다. 이때 direction에서 1은 CCW, -1은 CW 방향을 의미한다
 
-```python
-ros2 topic pub --once /radius_velocity_direction assignment1_pubsub/msg/Input "{radius: VALUE, velocity: VALUE, direction: 1 or -1}"
-```
-
 ## rqt_graph
 
 ![rosgraph](https://user-images.githubusercontent.com/80100520/148633855-2bb05142-693e-4861-92f6-22f133d0d794.png)
+
+## How to run
+### 1. build
+```python
+cd ~/your_directory/ colcon build --packages-select assignment1_msg
+cd ~/your_directory/ colcon build --packages-select assignment1_pubsub
+. ~/your_directory/install/local_setup.bash
+```
+
+### 2. launch
+```python
+ros2 launch assignment1_pubsub assignment1_launch.launch.py
+```
+
+### 3. publish user defined message
+```python
+ros2 topic pub --once /radius_velocity_direction assignment1_msg/msg/Input "{radius: your_value, velocity: your_value, direction: 1 or -1}"
+```
