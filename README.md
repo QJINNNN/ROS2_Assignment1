@@ -17,8 +17,9 @@
 ## How to run
 ### 1. build
 ```python
-cd ~/your_directory/ colcon build --packages-select assignment1_msg
-cd ~/your_directory/ colcon build --packages-select assignment1_pubsub
+cd ~/your_directory
+colcon build --packages-select assignment1_msg
+colcon build --packages-select assignment1_pubsub
 . ~/your_directory/install/local_setup.bash
 ```
 
